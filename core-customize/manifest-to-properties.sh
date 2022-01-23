@@ -16,7 +16,6 @@ PERSONAS=(
   '"staging"'
 )
 ASPECTS=( 
-  '"accstorefront"'
   '"admin"'
   '"api"'
   '"backgroundProcessing"' 

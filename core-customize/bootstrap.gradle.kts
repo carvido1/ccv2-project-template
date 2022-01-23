@@ -42,24 +42,6 @@ tasks.named("createDefaultConfig") {
     dependsOn("bootstrapExtras")
 }
 
-//** generate code
-// ant modulegen -Dinput.module=accelerator -Dinput.name=demoshop -Dinput.package=com.demo.shop
-tasks.register<HybrisAntTask>("generateNewStorefront") {
-    dependsOn("bootstrapPlatform", "createDefaultConfig")
-
-    args("modulegen")
-    antProperty("input.module", "accelerator")
-    antProperty("input.name", inputName())
-    antProperty("input.package", inputPackage())
-}
-
-tasks.register<Copy>("copyConfigImpex") {
-    mustRunAfter("generateNewStorefront")
-    from("bootstrap/")
-    include("*.impex")
-    into("hybris/bin/custom/${inputName()}/${inputName()}storefront/resources/impex/")
-}
-
 tasks.register<HybrisAntTask>("generateOcc") {
     dependsOn("bootstrapPlatform", "createDefaultConfig")
 
@@ -79,7 +61,7 @@ tasks.register<HybrisAntTask>("generateOccTests") {
 }
 
 tasks.register("generateCode") {
-    dependsOn("generateNewStorefront", "copyConfigImpex", "generateOcc", "generateOccTests")
+    dependsOn("generateOcc", "generateOccTests")
     doLast {
          ant.withGroovyBuilder {
             "move"("file" to "hybris/bin/custom/${inputName()}occ", "todir" to "hybris/bin/custom/${inputName()}")

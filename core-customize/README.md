@@ -21,8 +21,6 @@
 >
 >    Read the output!
 >
->    (If you use a headless setup: You can delete the generated `<projectName>storefront` extension
->     afterwards. Don't forget to remove it from `localextensions.xml` / `manifest.jsonnet` too)
 > 1. Review the generated configuration in `hybris/config`, especially the `hybris/config/environment/*.properties`
 >    files and `localextensions.xml` (search for `TODO:` comments)
 > 1. Update the `manifest.jsonnet` (again, search for `TODO:` comments).\

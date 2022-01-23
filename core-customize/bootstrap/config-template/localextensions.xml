@@ -11,7 +11,6 @@
     <extension name="@projectName@initialdata"/>
     <extension name="@projectName@core"/>
     <extension name="@projectName@facades"/>
-    <extension name="@projectName@storefront"/>
     <extension name="@projectName@fulfilmentprocess"/>
     <extension name="@projectName@occ" />
     <extension name="@projectName@occtests" />
